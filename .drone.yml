@@ -1,0 +1,50 @@
+pipeline:
+
+########################################
+# publish to DTR on merge into master #
+########################################
+
+  publish:
+    image: plugins/docker
+    repo: dtr.int-ac.dvla.gov.uk/vehicle-reg-num/government-gateway-stub
+    registry: dtr.int-ac.dvla.gov.uk
+    dockerfile: Dockerfile
+    secrets: [ docker_username, docker_password ]
+    build_args:
+      - GIT_COMMIT_TAG=${DRONE_COMMIT_SHA}
+      - VERSION=${DRONE_TAG=${DRONE_COMMIT_SHA:0:6}}
+      - BUILD_NO=${DRONE_BUILD_NUMBER}
+    tags:
+      - "${DRONE_TAG=latest}"
+      - "${DRONE_COMMIT_SHA}"
+    when:
+      ref:
+        - refs/heads/master
+        - refs/tags/*
+      event:
+        - push
+        - tag
+
+
+  ############################################
+  ## Slack build status (Drone - on failure) #
+  ############################################
+  slack push failure:
+    channel: squad3_builds
+    image: plugins/slack
+    secrets:
+      - slack_webhook
+    template: |
+      government-gateway-stub: drone event {{build.event}} has failed!
+      Build - {{build.number}}
+      Branch - {{build.branch}}
+      Author - {{build.author}}
+      Fix me please! <{{build.link}}|Details>
+    username: drone
+    when:
+      branch:
+        exclude:
+          - feature/*
+      event: push
+      status:
+        - failure
