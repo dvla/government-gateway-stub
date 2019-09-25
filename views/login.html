@@ -1,0 +1,55 @@
+<form autocomplete="off" action="/interaction/<%= details.uuid %>/login" method="post">
+
+
+<!-- -->
+  <input type="hidden" name="uuid" value="<%= details.uuid %>"/>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h2 class="govuk-heading-xl">Sign in</h2>
+      <p>Enter your Government Gateway credentials to sign in. You received these when you created your HMRC online
+        account.</p>
+
+    </div>
+  </div>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-third">
+      <form method="post" class="form">
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="email">User ID</label>
+          <input class="govuk-input" id="email" name="email" type="text"  <% if (!details.params.login_hint) { %>autofocus="on"<% } else { %> value="<%= details.params.login_hint %>" <% } %>>
+        </div>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="password">Password</label>
+          <input class="govuk-input" id="password" type="password">
+        </div>
+
+        <div class="govuk-form-group">
+          <button type="submit" class="govuk-button" type="next">Sign in</button>
+          <p class="govuk-body govuk-!-font-weight-regular">
+            <a class="govuk-link" id="registration" href="#" target="_self">Create sign in details</a>
+          </p>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h2 class="govuk-heading-l">Problems signing in</h2>
+
+      <ul class="govuk-list">
+        <li><a class="govuk-link" id="registration" href="#" target="_self">Don’t have a Government Gateway
+            account</a></li>
+        <li><a class="govuk-link" id="forgotten-user-id" href="#" target="_self">Forgotten user ID</a></li>
+        <li><a class="govuk-link" id="forgotten-password" href="#" target="_self">Forgotten password</a></li>
+        <li><a class="govuk-link" id="forgotten-user-id-and-password" href="#" target="_self">Forgotten user ID and
+            password</a></li>
+      </ul>
+
+    </div>
+  </div>
+
+</form>
