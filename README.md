@@ -40,7 +40,7 @@ http://localhost:3000/auth_callback?code=MDlkZTdmMGQtYzA4Mi00MzQ2LTgxM2YtMjMwZDR
 
 ### 2 Exchange Code from Token
 ```
-POST https://samples.auth0.com/oauth/token
+POST https://localhost:9090/oauth/token
 grant_type=authorization_code
 &client_id=stubOidcClient
 &client_secret=secretsarehardtokeep
