@@ -120,7 +120,11 @@ module.exports.clients = [
 	client_secret: process.env.STUB_CLIENT_SECRET || 'secretsarehardtokeep',
 	grant_types: ['refresh_token', 'authorization_code'],
 	redirect_uris: [ process.env.AUTH_CALLBACK || 'http://localhost:3000/auth_callback'],
-	token_endpoint_auth_method: 'client_secret_post'
+	id_token_signed_response_alg: 'RS256', 
+	response_types: [
+		'code'
+	  ],
+	token_endpoint_auth_method: 'client_secret_basic'
 }];
 
 module.exports.certificates = [{
