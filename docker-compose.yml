@@ -6,9 +6,8 @@ services:
       dockerfile: Dockerfile
     environment:
       - PORT=9090
-      - CLIENT_ID=my-client
-      - CLIENT_SECRET=my-secret
-      - CLIENT_REDIRECT_URI=https://prs-shop-dev.squad3.ac.dvla.gov.uk
-      - CLIENT_LOGOUT_REDIRECT_URI=http://localhost:9090
+      - STUB_CLIENT_ID=stubOidcClient
+      - STUB_CLIENT_SECRET=secretsarehardtokeep
+      - AUTH_CALLBACK=http://localhost:3000/auth_callback
     ports:
       - 9090:9090
