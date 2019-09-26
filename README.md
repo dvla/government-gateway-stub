@@ -19,15 +19,18 @@ With the following configurable ENVIROMENT VARIABLES
 ```
 
 ## Example
-http://localhost:9090/auth?client_id=s6BhdRkqt3&redirect_uri=https://prs-shop-dev.squad3.ac.dvla.gov.uk&response_type=code&scope=openid
-
-
 According SCP documentation from: https://gitlab.com/business-authentication-service/documentation/wikis/Authorisation
+
 ```
-GET <issuer>/authorize?    
-response_type=code    
-scope=openid    
-client_id=s6BhdRkqt3    
-state=af0ifjsldkj    
-redirect_uri=https%3A%2F%2Fclient.example.org%2Fcb 
+AUTH
+
+http://localhost:9090/auth
+?client_id=stubOidcClient
+&redirect_uri=http://localhost:9090/callback
+&scope=openid
+&response_type=code
+&state=a08bbf629d35b5329880fd6ec24064115e18bf06
+
+RESPONSE
+http://localhost:9090/callback?code=MDlkZTdmMGQtYzA4Mi00MzQ2LTgxM2YtMjMwZDRmMTYwMzVk6IaRX7sgrG49WMe1ZeEKSFS6tjUmN5t8AGJIwIBrIlAOulrbpQxSkO-JlNtjWxQ3FoZc2c_vo62NpWG355z5zg&state=a08bbf629d35b5329880fd6ec24064115e18bf06&session_state=9976abb20c79257f23a3b346ebd3168a7f227aaabe3bde2bebd906dfb5bff245.96be0038d3057052
 ```
