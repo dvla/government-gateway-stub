@@ -14,12 +14,12 @@ With the following configurable ENVIROMENT VARIABLES
       - PORT=9090
       - CLIENT_ID=my-client
       - CLIENT_SECRET=my-secret
-      - CLIENT_REDIRECT_URI=http://localhost:8080/cb
-      - CLIENT_LOGOUT_REDIRECT_URI=http://localhost:8080
+      - CLIENT_REDIRECT_URI=https://prs-shop-dev.squad3.ac.dvla.gov.uk
+      - CLIENT_LOGOUT_REDIRECT_URI=https://prs-shop-dev.squad3.ac.dvla.gov.uk/logout
 ```
 
 ## Example
-http://localhost:9090/auth?client_id=s6BhdRkqt3&redirect_uri=http://localhost:3000&response_type=code&scope=openid
+http://localhost:9090/auth?client_id=s6BhdRkqt3&redirect_uri=https://prs-shop-dev.squad3.ac.dvla.gov.uk&response_type=code&scope=openid
 
 
 According SCP documentation from: https://gitlab.com/business-authentication-service/documentation/wikis/Authorisation

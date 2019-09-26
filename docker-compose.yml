@@ -8,7 +8,7 @@ services:
       - PORT=9090
       - CLIENT_ID=my-client
       - CLIENT_SECRET=my-secret
-      - CLIENT_REDIRECT_URI=http://localhost:8080/cb
-      - CLIENT_LOGOUT_REDIRECT_URI=http://localhost:8080
+      - CLIENT_REDIRECT_URI=https://prs-shop-dev.squad3.ac.dvla.gov.uk
+      - CLIENT_LOGOUT_REDIRECT_URI=http://localhost:9090
     ports:
       - 9090:9090

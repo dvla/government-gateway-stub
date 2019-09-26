@@ -7,7 +7,7 @@ COPY package*.json ./
 RUN npm install
 
 COPY . .
-EXPOSE 8080
+EXPOSE 9090
 
 ENV DEBUG oidc-provider* 
 

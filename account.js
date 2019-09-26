@@ -29,6 +29,7 @@ class Account {
 
   static findByLogin(login, principalName) {
     if (!logins.get(login)) {
+      // dynamic creation of accounts
       logins.set(login, new Account(login, principalName));
     }
 

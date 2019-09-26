@@ -11,13 +11,15 @@ const serve  = require('koa-static');
 const Account = require('./account');
 const { config, clients, certificates} = require('./settings');
 
-const port = process.env.PORT || 8080;
-const issuer = process.env.ISSUER || 'https://localhost:8080';
+const port = process.env.PORT || 9090;
+const issuer = process.env.ISSUER || 'https://localhost:9090';
 
 //AAD specific header, can only be set by azure when running as AppService
 const PRINCIPAL_NAME_HEADER = 'x-ms-client-principal-name';
 const DOMAIN_HINT = process.env.DOMAIN_HINT || 'nav.no';
 const DEBUG_REQUEST = process.env.DEBUG_REQUEST || true;
+const WEBSITE_AUTH_ENABLED = process.env['WEBSITE_AUTH_ENABLED'] === 'True' || true
+
 
 config.findById = Account.findById;
 
@@ -25,7 +27,7 @@ const provider = new Provider(issuer, config);
 provider.defaultHttpOptions = { timeout: 15000 };
 
 function enforceAuthenticationIfEnabled(ctx){
-	if(process.env['WEBSITE_AUTH_ENABLED'] === 'True'){
+	if(WEBSITE_AUTH_ENABLED){
 		console.log('Authentication is enabled for site, check required headers');
 		if (!ctx.get(PRINCIPAL_NAME_HEADER)){
 			console.log('no principal id, found redirecting to /.auth/login/aad');
@@ -124,8 +126,8 @@ provider.initialize({
 		const result = {
 				login: {
 					account: account.accountId,
-					acr: details.params.acr_values || 'Level3',
-					amr: 'BankID',
+					acr: details.params.acr_values,
+					amr: '',
 					remember: !!ctx.request.body.remember,
 					ts: Math.floor(Date.now() / 1000),
 				},
