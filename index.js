@@ -18,7 +18,7 @@ const issuer = process.env.ISSUER || 'https://localhost:9090';
 const PRINCIPAL_NAME_HEADER = 'x-ms-client-principal-name';
 const DOMAIN_HINT = process.env.DOMAIN_HINT || 'nav.no';
 const DEBUG_REQUEST = process.env.DEBUG_REQUEST || true;
-const WEBSITE_AUTH_ENABLED = process.env['WEBSITE_AUTH_ENABLED'] === 'True' || true
+const WEBSITE_AUTH_ENABLED = process.env['WEBSITE_AUTH_ENABLED'] === 'True' || false
 
 
 config.findById = Account.findById;
