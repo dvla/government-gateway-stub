@@ -15,7 +15,22 @@ module.exports.config = {
 		pid: null,
 		locale: null,
 		jti: null,
-		sid: null
+		sid: null,
+		name: null,
+		email: null,
+		email_verified: null,
+		"bas:roles": null,
+		"bas:userInfoVersion": null,
+		"bas:transition:lastLoginTime": null,
+		"bas:transition:credentialCreatedDate": null,
+		"bas:gg-legacy:registrationCategory": null,
+		"bas:gg-legacy:agentId": null,
+		"bas:gg-legacy:agentCode": null,
+		"bas:gg-legacy:agentFriendlyName": null,
+		"bas:groupId": null,
+		"profile": null,
+		"bas:groupProfile": null,
+		"bas:gg-legacy:description":null
 	},
   },
   features: {

@@ -28,8 +28,19 @@ class Account {
         email_verified: true,
         name: this.principalName,
         locale: 'en',
-        'bas:roles': [ "Administrator", "User" ],
+        "bas:roles": [ "Administrator", "User" ],
         jti: this.principalName + ':' + this.accountUuid,
+        "bas:userInfoVersion": "1.1",
+        "bas:transition:lastLoginTime": 1467015903000,
+        "bas:transition:credentialCreatedDate": 1467015903000,
+        "bas:gg-legacy:registrationCategory": "Agent",
+        "bas:gg-legacy:agentId": "An agent ID",
+        "bas:gg-legacy:agentCode": "NQJUEJCWT145",
+        "bas:gg-legacy:agentFriendlyName": "Addams Agents",
+        "bas:groupId": "9F9416A1-3977-4FC1-AB5E-0352417FD5A8",
+        "profile": "https://www.ete.access.service.gov.uk/profile/svvrCUXlGWPIUPDcI08E20yGgDOgQK",
+        "bas:groupProfile": "https://www.ete.access.service.gov.uk/groupprofile/svvrCUXlGWPIUPDcI08E20yGgDOgQK",
+        "bas:gg-legacy:description": "This is the description for Gomez Addams"
     };
   }
 
