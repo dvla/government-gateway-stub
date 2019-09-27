@@ -19,7 +19,7 @@ module.exports.config = {
 	},
   },
   features: {
-    devInteractions: true, // defaults to true
+    devInteractions: false, // defaults to true
     discovery: true, // defaults to true
     // requestUri: true, // defaults to true
     // oauthNativeApps: true, // defaults to true
@@ -123,7 +123,7 @@ module.exports.clients = [
 	id_token_signed_response_alg: 'RS256', 
 	response_types: [
 		'code'
-	  ],
+	],
 	token_endpoint_auth_method: 'client_secret_basic'
 }];
 
