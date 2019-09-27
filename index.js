@@ -23,6 +23,10 @@ const WEBSITE_AUTH_ENABLED = process.env['WEBSITE_AUTH_ENABLED'] === 'True' || f
 
 config.findById = Account.findById;
 
+// default accounts
+new Account(396370457, "Gomez Addams", "gomez.addams@basmail.com");
+
+
 const provider = new Provider(issuer, config);
 provider.defaultHttpOptions = { timeout: 15000 };
 
@@ -120,13 +124,12 @@ provider.initialize({
 	router.post('/interaction/:grant/login', body, async (ctx, next) => {
 		
 		enforceAuthenticationIfEnabled(ctx);
-		const principalName = ctx.request.header[PRINCIPAL_NAME_HEADER] || 'anonymous';
-		const account = await Account.findByLogin(ctx.request.body.login, principalName);
-		const details = await provider.interactionDetails(ctx.req);
+		const account = await Account.findByLogin(ctx.request.body.userid, ctx.request.body.password);
+		//const details = await provider.interactionDetails(ctx.req);
 		const result = {
 				login: {
 					account: account.accountId,
-					acr: details.params.acr_values,
+					acr: '',
 					amr: '',
 					remember: !!ctx.request.body.remember,
 					ts: Math.floor(Date.now() / 1000),

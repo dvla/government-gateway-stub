@@ -16,13 +16,13 @@
       <form method="post" class="form">
 
         <div class="govuk-form-group">
-          <label class="govuk-label" for="email">User ID</label>
-          <input class="govuk-input" id="email" name="email" type="text"  <% if (!details.params.login_hint) { %>autofocus="on"<% } else { %> value="<%= details.params.login_hint %>" <% } %>>
+          <label class="govuk-label" for="userid">User ID</label>
+          <input class="govuk-input" id="userid" name="userid" type="text"  <% if (!details.params.login_hint) { %>autofocus="on"<% } else { %> value="<%= details.params.login_hint %>" <% } %>>
         </div>
 
         <div class="govuk-form-group">
           <label class="govuk-label" for="password">Password</label>
-          <input class="govuk-input" id="password" type="password">
+          <input class="govuk-input" id="password" name="password" type="password">
         </div>
 
         <div class="govuk-form-group">
