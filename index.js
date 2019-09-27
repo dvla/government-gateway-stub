@@ -85,6 +85,15 @@ provider.initialize({
 		await next();
 	});
 
+	router.get('/account-invalid/:grant', async (ctx, next) => {
+		const grant = ctx.params.grant;
+		await ctx.render('register', {
+			grant
+		});
+		await next();
+	});
+
+
 	router.get('/interaction/:grant', async (ctx, next) => {
 		const grant = ctx.params.grant;
 		const details = await provider.interactionDetails(ctx.req);
@@ -150,22 +159,29 @@ provider.initialize({
 	});
 
 	router.post('/interaction/:grant/login', body, async (ctx, next) => {
-		
+		const grant = ctx.params.grant;
 		enforceAuthenticationIfEnabled(ctx);
 		const account = await Account.findByLogin(ctx.request.body.userid, ctx.request.body.password);
-		//const details = await provider.interactionDetails(ctx.req);
-		const result = {
-				login: {
-					account: account.accountId,
-					acr: '',
-					amr: '',
-					remember: !!ctx.request.body.remember,
-					ts: Math.floor(Date.now() / 1000),
-				},
-				consent: {},
-		};
-		await provider.interactionFinished(ctx.req, ctx.res, result);
-		await next();
+		if(!account){
+			await ctx.render('account-invalid', {
+				grant
+			});
+	
+			await next();
+		} else {
+			const result = {
+					login: {
+						account: account.accountId,
+						acr: '',
+						amr: '',
+						remember: !!ctx.request.body.remember,
+						ts: Math.floor(Date.now() / 1000),
+					},
+					consent: {},
+			};
+			await provider.interactionFinished(ctx.req, ctx.res, result);
+			await next();
+		}
 	});
 
 	// serve files in public folder (css, js etc)
