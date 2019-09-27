@@ -1,9 +1,10 @@
 # Government Gateway Stub
-A simple OpenID Connect identity provider with stubbed login (i.e. accepts all logins). Based on the great NodeJS module oidc-provider.
+A simple OpenID Connect identity provider with signup and login. Based on the NodeJS module oidc-provider.
 The CODE returned from the provider mimics the CODE from Government Gateway, with the obvious exception of the signing key and issuer values.
 
-Please note that this should only be used in test or local environments as the keys used to sign the token are readily available here in the source code.
-
+### Default User Accounts
+government id: 123123123, password: "test"
+should return => "Bob Jones", "bob.jones@gmail.com"
 
 ## Usage
 `docker-compose build`
@@ -17,9 +18,6 @@ With the following configurable ENVIROMENT VARIABLES
       - AUTH_CALLBACK=http://localhost:3000/auth_callback
 ```
 
-### Default Accounts
-government id: 123123123, password: "test"
-should return => "Bob Jones", "bob.jones@gmail.com"
 
 ## Example
 According SCP documentation from: https://gitlab.com/business-authentication-service/documentation/wikis/Authorisation
