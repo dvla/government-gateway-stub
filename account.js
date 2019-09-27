@@ -47,11 +47,11 @@ class Account {
   }
 
   static findByLogin(id, password) {
-    let account = logins.get(id + "-" + password)
+    let account = logins.get(id + "-" + password);
     if (account != null) {
       account.lastLoginTime = Date.now();
       store.set(account.accountId, account);
-      logins.set(account.accountId + "-" + password, this)
+      logins.set(account.accountId + "-" + password, account);
     }
     return Promise.resolve(account);
   }
