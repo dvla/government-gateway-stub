@@ -1,0 +1,36 @@
+<form autocomplete="off" action="/register/<%= grant %>/submit" method="post">
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+          <h2 class="govuk-heading-xl">Sign up</h2>
+        </div>
+      </div>
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-one-third">
+          <form method="post" class="form">
+    
+            <div class="govuk-form-group">
+              <label class="govuk-label" for="name">Full name</label>
+              <input required class="govuk-input" id="name" name="name" type="text" >
+            </div>
+    
+            <div class="govuk-form-group">
+              <label class="govuk-label" for="email">Email address</label>
+              <input required class="govuk-input" id="email" name="email" type="email">
+            </div>
+
+
+            <div class="govuk-form-group">
+                <label class="govuk-label" for="password">Password</label>
+                <input required class="govuk-input" id="password" name="password" type="password">
+              </div>
+    
+            <div class="govuk-form-group">
+              <button type="submit" class="govuk-button" type="next">Continue</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    
+    
+    </form>

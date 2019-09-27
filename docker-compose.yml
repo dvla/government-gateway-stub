@@ -1,0 +1,13 @@
+version: '3'
+services:
+  mock_user_service:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - PORT=9090
+      - STUB_CLIENT_ID=stubOidcClient
+      - STUB_CLIENT_SECRET=secretsarehardtokeep
+      - AUTH_CALLBACK=http://localhost:3000/auth/gg/callback
+    ports:
+      - 9090:9090
