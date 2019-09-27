@@ -3,11 +3,13 @@ const logins = new Map();
 const uuid = require('uuid/v4');
 
 class Account {
-  constructor(id, principalName, email, password) {
+  constructor(id, principalName, email, password, creationTime) {
     this.accountId = id;
     this.accountUuid = uuid();
     this.principalName = principalName;
     this.email = email;
+    this.creationTime = creationTime;
+    this.lastLoginTime = creationTime;
     store.set(this.accountId, this);
     logins.set(this.accountId + "-" + password, this)
   }
@@ -22,7 +24,7 @@ class Account {
    */
   async claims(use, scope) { // eslint-disable-line no-unused-vars
     return {
-    		sub: this.accountId, 
+        sub: this.accountId,
         pid: this.accountUuid,
         email: this.email,
         email_verified: true,
@@ -31,8 +33,8 @@ class Account {
         "bas:roles": [ "Administrator", "User" ],
         jti: this.principalName + ':' + this.accountUuid,
         "bas:userInfoVersion": "1.1",
-        "bas:transition:lastLoginTime": 1467015903000,
-        "bas:transition:credentialCreatedDate": 1467015903000,
+        "bas:transition:lastLoginTime": this.lastLoginTime,
+        "bas:transition:credentialCreatedDate": this.creationTime,
         "bas:gg-legacy:registrationCategory": "Agent",
         "bas:gg-legacy:agentId": "An agent ID",
         "bas:gg-legacy:agentCode": "NQJUEJCWT145",
@@ -45,7 +47,13 @@ class Account {
   }
 
   static findByLogin(id, password) {
-    return Promise.resolve(logins.get(id + "-" + password));
+    let account = logins.get(id + "-" + password)
+    if (account != null) {
+      account.lastLoginTime = Date.now();
+      store.set(account.accountId, account);
+      logins.set(account.accountId + "-" + password, this)
+    }
+    return Promise.resolve(account);
   }
 
   static async findById(ctx, id, token) { // eslint-disable-line no-unused-vars

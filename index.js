@@ -24,7 +24,7 @@ const WEBSITE_AUTH_ENABLED = process.env['WEBSITE_AUTH_ENABLED'] === 'True' || f
 config.findById = Account.findById;
 
 // default accounts
-new Account(123123123, "Bob Jones", "bob.jones@gmail.com", "test");
+new Account(123123123, "Bob Jones", "bob.jones@gmail.com", "test", 1569586285000);
 
 
 const provider = new Provider(issuer, config);
@@ -139,7 +139,7 @@ provider.initialize({
 
 	router.post('/register/:grant/submit', body, async (ctx, next) => {
 		const newId = Math.floor(100000000 + Math.random() * 900000000)
-		const account = new Account(newId, ctx.request.body.name, ctx.request.body.email, ctx.request.body.password);
+		const account = new Account(newId, ctx.request.body.name, ctx.request.body.email, ctx.request.body.password, Date.now());
 		const grant = ctx.params.grant;
 		await ctx.render('success', {
 			account,

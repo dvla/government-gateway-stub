@@ -134,7 +134,7 @@ module.exports.clients = [
 	client_id: process.env.STUB_CLIENT_ID || 'stubOidcClient',
 	client_secret: process.env.STUB_CLIENT_SECRET || 'secretsarehardtokeep',
 	grant_types: ['refresh_token', 'authorization_code'],
-	redirect_uris: [ process.env.AUTH_CALLBACK || 'http://localhost:3000/auth_callback'],
+	redirect_uris: [ process.env.AUTH_CALLBACK || 'http://localhost:3000/auth/gg/callback'],
 	id_token_signed_response_alg: 'RS256', 
 	response_types: [
 		'code'
