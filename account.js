@@ -1,16 +1,15 @@
 const store = new Map();
 const logins = new Map();
 const uuid = require('uuid/v4');
-const DEFAULT_PASSWORD = "test"
 
 class Account {
-  constructor(id, principalName, email) {
+  constructor(id, principalName, email, password) {
     this.accountId = id;
-    this.accountaaUuid = uuid();
+    this.accountUuid = uuid();
     this.principalName = principalName;
     this.email = email;
     store.set(this.accountId, this);
-    logins.set(this.accountId + "-" + DEFAULT_PASSWORD, this)
+    logins.set(this.accountId + "-" + password, this)
   }
 
   /**
@@ -23,12 +22,12 @@ class Account {
    */
   async claims(use, scope) { // eslint-disable-line no-unused-vars
     return {
-    		sub: this.accountUuid, 
-        pid: this.accountId,
+    		sub: this.accountId, 
+        pid: this.accountUuid,
         email: this.email,
         email_verified: true,
         name: this.principalName,
-        locale: 'nb',
+        locale: 'en',
         'bas:roles': [ "Administrator", "User" ],
         jti: this.principalName + ':' + this.accountUuid,
     };

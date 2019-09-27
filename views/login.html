@@ -3,6 +3,7 @@
 
 <!-- -->
   <input type="hidden" name="uuid" value="<%= details.uuid %>"/>
+ 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <h2 class="govuk-heading-xl">Sign in</h2>
@@ -17,18 +18,18 @@
 
         <div class="govuk-form-group">
           <label class="govuk-label" for="userid">User ID</label>
-          <input class="govuk-input" id="userid" name="userid" type="text"  <% if (!details.params.login_hint) { %>autofocus="on"<% } else { %> value="<%= details.params.login_hint %>" <% } %>>
+          <input required class="govuk-input" id="userid" name="userid" type="text"  <% if (!details.params.login_hint) { %>autofocus="on"<% } else { %> value="<%= details.params.login_hint %>" <% } %>>
         </div>
 
         <div class="govuk-form-group">
           <label class="govuk-label" for="password">Password</label>
-          <input class="govuk-input" id="password" name="password" type="password">
+          <input required class="govuk-input" id="password" name="password" type="password">
         </div>
 
         <div class="govuk-form-group">
           <button type="submit" class="govuk-button" type="next">Sign in</button>
           <p class="govuk-body govuk-!-font-weight-regular">
-            <a class="govuk-link" id="registration" href="#" target="_self">Create sign in details</a>
+            <a class="govuk-link" id="registration" href="/register/<%= grant %>" target="_self">Create sign in details</a>
           </p>
         </div>
       </form>
@@ -41,7 +42,7 @@
       <h2 class="govuk-heading-l">Problems signing in</h2>
 
       <ul class="govuk-list">
-        <li><a class="govuk-link" id="registration" href="#" target="_self">Don’t have a Government Gateway
+        <li><a class="govuk-link" id="registration" href="" target="_self">Don’t have a Government Gateway
             account</a></li>
         <li><a class="govuk-link" id="forgotten-user-id" href="#" target="_self">Forgotten user ID</a></li>
         <li><a class="govuk-link" id="forgotten-password" href="#" target="_self">Forgotten password</a></li>

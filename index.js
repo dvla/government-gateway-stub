@@ -24,7 +24,7 @@ const WEBSITE_AUTH_ENABLED = process.env['WEBSITE_AUTH_ENABLED'] === 'True' || f
 config.findById = Account.findById;
 
 // default accounts
-new Account(396370457, "Gomez Addams", "gomez.addams@basmail.com");
+new Account(123123123, "Bob Jones", "bob.jones@gmail.com", "test");
 
 
 const provider = new Provider(issuer, config);
@@ -72,17 +72,29 @@ provider.initialize({
 		});
 	}
 
+
 	const router = new Router(); 
 
-  
-	router.get('/interaction/:grant', async (ctx, next) => {
+	// GET requests
+	
+	router.get('/register/:grant', async (ctx, next) => {
+		const grant = ctx.params.grant;
+		await ctx.render('register', {
+			grant
+		});
+		await next();
+	});
 
+	router.get('/interaction/:grant', async (ctx, next) => {
+		const grant = ctx.params.grant;
 		const details = await provider.interactionDetails(ctx.req);
 		const client = await provider.Client.find(details.params.client_id);
 		
+
 		enforceAuthenticationIfEnabled(ctx);
 
 		if (details.interaction.error === 'login_required') {
+			
 			await ctx.render('login', {
 				client,
 				details,
@@ -94,6 +106,7 @@ provider.initialize({
 				interaction: querystring.stringify(details.interaction, ',<br/>', ' = ', {
 					encodeURIComponent: value => value,
 				}),
+				grant
 			});
 		} else {
 			await ctx.render('interaction', {
@@ -112,7 +125,22 @@ provider.initialize({
 		await next();
 	});
 
+	// POST requests
 	const body = bodyParser();
+
+	router.post('/register/:grant/submit', body, async (ctx, next) => {
+		const newId = Math.floor(100000000 + Math.random() * 900000000)
+		const account = new Account(newId, ctx.request.body.name, ctx.request.body.email, ctx.request.body.password);
+		const grant = ctx.params.grant;
+		await ctx.render('success', {
+			account,
+			newId,
+			grant
+			});
+
+		await next();
+	});
+
 
 	router.post('/interaction/:grant/confirm', body, async (ctx, next) => {
 		enforceAuthenticationIfEnabled(ctx);

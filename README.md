@@ -18,8 +18,8 @@ With the following configurable ENVIROMENT VARIABLES
 ```
 
 ### Default Accounts
-396370457 with password "test"
-should return => "Gomez Addams", "gomez.addams@basmail.com"
+government id: 123123123, password: "test"
+should return => "Bob Jones", "bob.jones@gmail.com"
 
 ## Example
 According SCP documentation from: https://gitlab.com/business-authentication-service/documentation/wikis/Authorisation
