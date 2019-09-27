@@ -29,7 +29,7 @@ According SCP documentation from: https://gitlab.com/business-authentication-ser
 ```
 http://localhost:9090/auth
 ?client_id=stubOidcClient
-&redirect_uri=http://localhost:9090/callback
+&redirect_uri=http://localhost:3000/auth_callback
 &scope=openid
 &response_type=code
 &state=a08bbf629d35b5329880fd6ec24064115e18bf06
