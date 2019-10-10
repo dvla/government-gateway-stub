@@ -39,7 +39,7 @@ pipeline:
     values_files:
       - "./deployment/values.yaml"
       - "./deployment/dev-values.yaml"
-    values: image.tag=${DRONE_COMMIT_SHA:0:11}
+    values: image.tag=${DRONE_COMMIT_SHA}
     prefix: dev
     secrets: [ dev_service_account, dev_api_server, dev_kubernetes_token ]
     when:
