@@ -1,0 +1,6 @@
+service:
+  name: government-gateway-stub
+  dnsName: government-gateway-stub-dev.squad3.ac.dvla.gov.uk
+  clientId: stubOidcClient
+  clientSecret: secretsarehardtokeep
+  authCallbackUrl: https://prs-shop-dev.squad3.ac.dvla.gov.uk/auth/gg/callback
