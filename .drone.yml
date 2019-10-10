@@ -25,6 +25,27 @@ pipeline:
         - push
         - tag
 
+  #############################################################
+  # Deploy to K8S                                            ##
+  #############################################################
+  deploy government-gateway-stub image to Squad3 dev k8s:
+    image: quay.io/ipedrazas/drone-helm:k1.8.1-h2.7.0
+    chart: ./deployment
+    skip_tls_verify: true
+    release: government-gateway-stub
+    namespace: pr-sales
+    debug: true
+    wait: false
+    values_files:
+      - "./deployment/values.yaml"
+      - "./deployment/dev-values.yaml"
+    values: image.tag=${DRONE_COMMIT_SHA:0:11}
+    prefix: dev
+    secrets: [ dev_service_account, dev_api_server, dev_kubernetes_token ]
+    when:
+      branch: master
+      event: push
+
 
   ############################################
   ## Slack build status (Drone - on failure) #
