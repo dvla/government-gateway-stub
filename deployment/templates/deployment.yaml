@@ -43,6 +43,8 @@ spec:
           env:
             - name: PORT
               value: {{ .Values.service.port | quote }}
+            - name: NODE_ENV
+              value: hosted
             - name: STUB_CLIENT_ID
               value: {{ .Values.service.clientId | quote }}
             - name: STUB_CLIENT_SECRET
