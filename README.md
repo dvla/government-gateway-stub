@@ -2,9 +2,14 @@
 A simple OpenID Connect identity provider with signup and login. Based on the NodeJS module oidc-provider.
 The CODE returned from the provider mimics the CODE from Government Gateway, with the obvious exception of the signing key and issuer values.
 
+This Stub has been developed by the PRS team at DVLA. We appreciate the code is not production quality, but it fulfil its purpose of stubbing the Government Gateway behaviour in line with the HMRC documentation from:https://gitlab.com/business-authentication-service/documentation/wikis/Authorisation
+
+
 ### Default User Accounts
-government id: 123123123, password: "test"
-should return => "Bob Jones", "bob.jones@gmail.com"
+For simplicity of testing we provide a user out of the box.
+
+Government id: 123123123, password: "test"
+Should return => "Bob Jones", "bob.jones@gmail.com"
 
 ## Usage
 `docker-compose build`
@@ -20,7 +25,7 @@ With the following configurable ENVIROMENT VARIABLES
 
 
 ## Example
-According SCP documentation from: https://gitlab.com/business-authentication-service/documentation/wikis/Authorisation
+
 
 ### 1 Redirect to OpenID Connect Server
 
@@ -30,13 +35,12 @@ http://localhost:9090/auth
 &redirect_uri=http://localhost:3000/auth_callback
 &scope=openid
 &response_type=code
-&state=a08bbf629d35b5329880fd6ec24064115e18bf06
 
 ```
-REDIRECT
+REDIRECTS TO
 
 ```
-http://localhost:3000/auth_callback?code=MDlkZTdmMGQtYzA4Mi00MzQ2LTgxM2YtMjMwZDRmMTYwMzVk6IaRX7sgrG49WMe1ZeEKSFS6tjUmN5t8AGJIwIBrIlAOulrbpQxSkO-JlNtjWxQ3FoZc2c_vo62NpWG355z5zg&state=a08bbf629d35b5329880fd6ec24064115e18bf06&session_state=9976abb20c79257f23a3b346ebd3168a7f227aaabe3bde2bebd906dfb5bff245.96be0038d3057052
+http://localhost:3000/auth_callback?code=MDlkZTdmMGQtYzA4Mi00MzQ2LTgxM2YtMjMwZDRmMTYwMzVk6IaRX7sgrG49WMe1ZeEKSFS6tjUmN5t8AGJIwIBrIlAOulrbpQxSkO-JlNtjWxQ3FoZc2c_vo62NpWG355z5zg&session_state=9976abb20c79257f23a3b346ebd3168a7f227aaabe3bde2bebd906dfb5bff245.96be0038d3057052
 
 ```
 
