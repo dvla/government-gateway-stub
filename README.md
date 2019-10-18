@@ -30,7 +30,7 @@ With the following configurable ENVIROMENT VARIABLES
 ### 1 Redirect to OpenID Connect Server
 
 ```
-http://localhost:9090/auth
+GET http://localhost:9090/auth
 ?client_id=stubOidcClient
 &redirect_uri=http://localhost:3000/auth_callback
 &scope=openid
@@ -60,3 +60,16 @@ Your “id_token” is:
 
 eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InJpY2hhcmRAbm90YmluYXJ5LmNvLnVrIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsIm5hbWUiOiJSaWNjYXJkbyBOb3ZpZWxsbyIsImdpdmVuX25hbWUiOiJSaWNjYXJkbyIsImZhbWlseV9uYW1lIjoiTm92aWVsbG8iLCJwaWN0dXJlIjoiaHR0cHM6Ly9saDUuZ29vZ2xldXNlcmNvbnRlbnQuY29tLy1jbTVncF9rbTZfay9BQUFBQUFBQUFBSS9BQUFBQUFBQUFBQS9BQ0hpM3JkTkYzVEVUUnZXYi0zZUVoT1h4VTRIYXp6MU9nL3Bob3RvLmpwZyIsImxvY2FsZSI6ImVuLUdCIiwiY2xpZW50SUQiOiJrYnl1RkRpZExMbTI4MExJd1ZGaWF6T3FqTzN0eThLSCIsInVwZGF0ZWRfYXQiOiIyMDE5LTA5LTI2VDEwOjM0OjQxLjMzMFoiLCJ1c2VyX2lkIjoiZ29vZ2xlLW9hdXRoMnwxMDEyMTM5MjA0NjQxNjAxOTYxNDkiLCJuaWNrbmFtZSI6InJpY2hhcmQiLCJpZGVudGl0aWVzIjpbeyJwcm92aWRlciI6Imdvb2dsZS1vYXV0aDIiLCJ1c2VyX2lkIjoiMTAxMjEzOTIwNDY0MTYwMTk2MTQ5IiwiY29ubmVjdGlvbiI6Imdvb2dsZS1vYXV0aDIiLCJpc1NvY2lhbCI6dHJ1ZX1dLCJjcmVhdGVkX2F0IjoiMjAxOS0wOS0yNlQxMDozNDo0MS4zMjlaIiwiaXNzIjoiaHR0cHM6Ly9zYW1wbGVzLmF1dGgwLmNvbS8iLCJzdWIiOiJnb29nbGUtb2F1dGgyfDEwMTIxMzkyMDQ2NDE2MDE5NjE0OSIsImF1ZCI6ImtieXVGRGlkTExtMjgwTEl3VkZpYXpPcWpPM3R5OEtIIiwiaWF0IjoxNTY5NDk0MDk5LCJleHAiOjE1Njk1MzAwOTl9.R97-VsdfW7ej3adpjd2Ytx--dVHYEAi6j5WlU2btS0c
 
+
+
+## Screens
+We have reproduce the same look and feel of Government Gateway, although we have simplified the Sign Up process, as the real flow is much more convoluted. We think testing the sign up flow does not add value in the end to end flow as it effectively means testing and out-of-the-box functionality provided to us.
+
+### Homepage
+![alt homepage](screens/home.png)
+
+### Sign Up
+![alt signup](screens/sign_up.png)
+
+### Sign Up success
+![alt signup-success](screens/sign_up_success.png)
