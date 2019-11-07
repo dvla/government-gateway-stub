@@ -10,7 +10,7 @@
             <h1 class="govuk-panel__title" id="successful-heading">
               Your Government Gateway user ID is:
             </h1>
-            <div class="govuk-panel__body success-panel">
+            <div class="govuk-panel__body success-panel" id="gov-gateway-user-id">
               <%= newId %>
             </div>
   
@@ -29,7 +29,7 @@
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
           <p class="govuk-body">
-            <a class="govuk-button button-spacing govuk-!-margin-top-7 govuk-!-margin-bottom-7" href="/interaction/<%= grant %>">Continue</a>
+            <a class="govuk-button button-spacing govuk-!-margin-top-7 govuk-!-margin-bottom-7" href="/interaction/<%= grant %>" id="continue-from-sign-up-btn">Continue</a>
           </p>
           <p class="govuk-body govuk-!-font-weight-regular">
             <a class="govuk-link" href="#" target="_self">Get help</a>
