@@ -24,7 +24,7 @@ const WEBSITE_AUTH_ENABLED = process.env['WEBSITE_AUTH_ENABLED'] === 'True' || f
 config.findById = Account.findById;
 
 // default accounts
-new Account(123123123, "Bob Jones", "bob.jones@gmail.com", "test", 1569586285000);
+new Account(123123123, process.env['TEST_USER_NAME'], process.env['TEST_USER_EMAIL'], "test", 1569586285000);
 
 
 const provider = new Provider(issuer, config);

@@ -37,12 +37,12 @@ class Account {
         "bas:transition:credentialCreatedDate": this.creationTime,
         "bas:gg-legacy:registrationCategory": "Agent",
         "bas:gg-legacy:agentId": "An agent ID",
-        "bas:gg-legacy:agentCode": "NQJUEJCWT145",
-        "bas:gg-legacy:agentFriendlyName": "Addams Agents",
+        "bas:gg-legacy:agentCode": "RANDOM12345",
+        "bas:gg-legacy:agentFriendlyName": "Test Friendly Name",
         "bas:groupId": "9F9416A1-3977-4FC1-AB5E-0352417FD5A8",
-        "profile": "https://www.ete.access.service.gov.uk/profile/svvrCUXlGWPIUPDcI08E20yGgDOgQK",
-        "bas:groupProfile": "https://www.ete.access.service.gov.uk/groupprofile/svvrCUXlGWPIUPDcI08E20yGgDOgQK",
-        "bas:gg-legacy:description": "This is the description for Gomez Addams"
+        "profile": "somelink",
+        "bas:groupProfile": "somelink",
+        "bas:gg-legacy:description": "This is the description for the test user name"
     };
   }
 

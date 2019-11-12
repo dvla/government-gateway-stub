@@ -9,7 +9,7 @@ This Stub has been developed by the PRS team at DVLA. We appreciate the code is 
 For simplicity of testing we provide a user out of the box.
 
 Government id: 123123123, password: "test"
-Should return => "Bob Jones", "bob.jones@gmail.com"
+Should return => "<FirstName LastName>", "<Email>"
 
 ## Usage
 `docker-compose build`

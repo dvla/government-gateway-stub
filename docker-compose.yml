@@ -9,5 +9,7 @@ services:
       - STUB_CLIENT_ID=stubOidcClient
       - STUB_CLIENT_SECRET=secretsarehardtokeep
       - AUTH_CALLBACK=http://localhost:3000/auth/gg/callback
+      - TEST_USER_NAME="TestName TestEmail"
+      - TEST_USER_EMAIL="testname@testprovider.com"
     ports:
       - 9090:9090
