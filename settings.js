@@ -127,7 +127,7 @@ module.exports.clients = [
     client_id: 'test_implicit_app',
     grant_types: ['implicit'],
     response_types: ['id_token'],
-    redirect_uris: ['https://prs-shop-dev.squad3.ac.dvla.gov.uk'],
+    redirect_uris: ['http://localhost:3000/auth/gg/callback'],
     token_endpoint_auth_method: 'none'
 },
 {
