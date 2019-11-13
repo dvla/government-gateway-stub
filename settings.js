@@ -127,14 +127,14 @@ module.exports.clients = [
     client_id: 'test_implicit_app',
     grant_types: ['implicit'],
     response_types: ['id_token'],
-    redirect_uris: ['http://localhost:3000/auth/gg/callback'],
+    redirect_uris: ['https://implicit-flow.com'],
     token_endpoint_auth_method: 'none'
 },
 {
 	client_id: process.env.STUB_CLIENT_ID || 'stubOidcClient',
 	client_secret: process.env.STUB_CLIENT_SECRET || 'secretsarehardtokeep',
 	grant_types: ['refresh_token', 'authorization_code'],
-	redirect_uris: [ process.env.AUTH_CALLBACK || 'http://localhost:3000/auth/gg/callback'],
+	redirect_uris: [ process.env.AUTH_CALLBACK],
 	id_token_signed_response_alg: 'RS256', 
 	response_types: [
 		'code'
