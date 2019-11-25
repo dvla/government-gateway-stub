@@ -122,6 +122,13 @@ module.exports.config = {
 	 
 };
 
+// Parse return urls
+var callbackUris = [];
+if(process.env.AUTH_CALLBACKS){
+	callbackUris = process.env.AUTH_CALLBACKS.split(',').map(x => x.trim());
+}
+console.log("Return URLs: ", callbackUris);
+
 module.exports.clients = [
 {
     client_id: 'test_implicit_app',
@@ -134,7 +141,7 @@ module.exports.clients = [
 	client_id: process.env.STUB_CLIENT_ID || 'stubOidcClient',
 	client_secret: process.env.STUB_CLIENT_SECRET || 'secretsarehardtokeep',
 	grant_types: ['refresh_token', 'authorization_code'],
-	redirect_uris: [ process.env.AUTH_CALLBACK],
+	redirect_uris: callbackUris,
 	id_token_signed_response_alg: 'RS256', 
 	response_types: [
 		'code'
