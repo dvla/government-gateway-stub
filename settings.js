@@ -121,7 +121,14 @@ module.exports.config = {
 	                             "PS512"] },
 	 
 };
-var callbackUris = process.env.AUTH_CALLBACKS.split(", ");
+
+// Parse return urls
+var callbackUris = [];
+if(process.env.AUTH_CALLBACKS){
+	callbackUris = process.env.AUTH_CALLBACKS.split(',').map(x => x.trim());
+}
+console.log("Return URLs: ", callbackUris);
+
 module.exports.clients = [
 {
     client_id: 'test_implicit_app',
