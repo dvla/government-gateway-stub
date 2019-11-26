@@ -49,8 +49,8 @@ spec:
               value: {{ .Values.service.clientId | quote }}
             - name: STUB_CLIENT_SECRET
               value: {{ .Values.service.clientSecret | quote }}
-            - name: AUTH_CALLBACK
-              value: {{ .Values.service.authCallbackUrl | quote }}
+            - name: AUTH_CALLBACKS
+              value: {{ .Values.service.authCallbackUrls | quote }}
           resources:
 {{ toYaml .Values.resources | indent 12 }}
     {{- with .Values.nodeSelector }}
