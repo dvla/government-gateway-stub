@@ -40,7 +40,7 @@ class Account {
         "bas:gg-legacy:agentCode": "RANDOM12345",
         "bas:gg-legacy:agentFriendlyName": "Test Friendly Name",
         "bas:groupId": "9F9416A1-3977-4FC1-AB5E-0352417FD5A8",
-        "profile": "/account/your-details/ayp/tbf/" + this.accountUuid,
+        "profile": window.location.hostname + "/account/your-details/ayp/tbf/" + this.accountUuid,
         "bas:groupProfile": "somelink",
         "bas:gg-legacy:description": "This is the description for the test user name"
     };
