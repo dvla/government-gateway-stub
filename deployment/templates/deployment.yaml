@@ -53,6 +53,8 @@ spec:
               value: {{ .Values.service.authCallbackUrls | quote }}            
             - name: SERVICE_RETURN_URL
               value: {{ .Values.service.serviceReturlUrl | quote }}
+            - name: ISSUER
+              value: {{ .Values.service.issuer | quote }}
           resources:
 {{ toYaml .Values.resources | indent 12 }}
     {{- with .Values.nodeSelector }}
