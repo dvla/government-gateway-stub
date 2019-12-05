@@ -32,7 +32,7 @@ With the following configurable ENVIROMENT VARIABLES
 ```
 GET http://localhost:9090/auth
 ?client_id=stubOidcClient
-&redirect_uri=http://localhost:3000/auth_callback
+&redirect_uri=http://localhost:8080/callback_not_set
 &scope=openid
 &response_type=code
 
@@ -40,7 +40,7 @@ GET http://localhost:9090/auth
 REDIRECTS TO
 
 ```
-http://localhost:3000/auth_callback?code=MDlkZTdmMGQtYzA4Mi00MzQ2LTgxM2YtMjMwZDRmMTYwMzVk6IaRX7sgrG49WMe1ZeEKSFS6tjUmN5t8AGJIwIBrIlAOulrbpQxSkO-JlNtjWxQ3FoZc2c_vo62NpWG355z5zg&session_state=9976abb20c79257f23a3b346ebd3168a7f227aaabe3bde2bebd906dfb5bff245.96be0038d3057052
+http://localhost:8080/callback_not_set?code=MDlkZTdmMGQtYzA4Mi00MzQ2LTgxM2YtMjMwZDRmMTYwMzVk6IaRX7sgrG49WMe1ZeEKSFS6tjUmN5t8AGJIwIBrIlAOulrbpQxSkO-JlNtjWxQ3FoZc2c_vo62NpWG355z5zg&session_state=9976abb20c79257f23a3b346ebd3168a7f227aaabe3bde2bebd906dfb5bff245.96be0038d3057052
 
 ```
 
@@ -50,7 +50,7 @@ POST https://localhost:9090/oauth/token
 grant_type=authorization_code
 &client_id=stubOidcClient
 &client_secret=secretsarehardtokeep
-&redirect_uri=http://localhost:3000/auth_callback
+&redirect_uri=http://localhost:8080/callback_not_set
 &code=MDlkZTdmMGQtYzA4Mi00MzQ2LTgxM2YtMjMwZDRmMTYwMzVk6IaRX7sgrG49WMe1ZeEKSFS6tjUmN5t8AGJIwIBrIlAOulrbpQxSkO-JlNtjWxQ3FoZc2c_vo62NpWG355z5zg&state=a08bbf629d35b5329880fd6ec24064115e18bf06&session_state=9976abb20c79257f23a3b346ebd3168a7f227aaabe3bde2bebd906dfb5bff245.96be0038d3057052
 ```
 

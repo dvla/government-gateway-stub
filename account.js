@@ -1,8 +1,7 @@
 const store = new Map();
 const logins = new Map();
 const uuid = require('uuid/v4');
-const os = require("os");
-const hostname = os.hostname();
+const issuer = process.env.ISSUER || 'http://localhost:9090';
 
 class Account {
   constructor(id, principalName, email, password, creationTime, identifier = uuid()) {
@@ -42,7 +41,7 @@ class Account {
         "bas:gg-legacy:agentCode": "RANDOM12345",
         "bas:gg-legacy:agentFriendlyName": "Test Friendly Name",
         "bas:groupId": "9F9416A1-3977-4FC1-AB5E-0352417FD5A8",
-        "profile": hostname + "/account/your-details/ayp/tbf/" + this.accountUuid,
+        "profile": issuer + "/account/your-details/ayp/tbf/" + this.accountUuid,
         "bas:groupProfile": "somelink",
         "bas:gg-legacy:description": "This is the description for the test user name"
     };
