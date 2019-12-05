@@ -8,7 +8,7 @@ This Stub has been developed by the PRS team at DVLA. We appreciate the code is 
 ### Default User Accounts
 For simplicity of testing we provide a user out of the box.
 
-Government id: 123123123, password: "test"
+Government id: 123123123, password: "test", uuid: 1d4fe1ad-958e-4d73-811d-ca4f2305a1d8
 Should return => "<FirstName LastName>", "<Email>"
 
 ## Usage

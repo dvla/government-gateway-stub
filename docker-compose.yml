@@ -11,5 +11,6 @@ services:
       - AUTH_CALLBACKS=http://localhost:3000/auth/gg/callback, http://0.0.0.0:3000/auth/gg/callback
       - TEST_USER_NAME="TestName TestEmail"
       - TEST_USER_EMAIL="testname@testprovider.com"
+      - SERVICE_HOME_URL="http://localhost:3000"
     ports:
       - 9090:9090

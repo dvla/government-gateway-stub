@@ -22,9 +22,14 @@ const WEBSITE_AUTH_ENABLED = process.env['WEBSITE_AUTH_ENABLED'] === 'True' || f
 
 
 config.findById = Account.findById;
+const TEST_USER_NAME = process.env['TEST_USER_NAME'] || 'Name Lastname';
+const TEST_USER_EMAIL = process.env['TEST_USER_EMAIL'] || 'name.lastname@scp-stub785394.com';
+
+
+const SERVICE_HOME_URL = process.env['SERVICE_HOME_URL'] || 'http://localhost:3000';
 
 // default accounts
-new Account(123123123, process.env['TEST_USER_NAME'], process.env['TEST_USER_EMAIL'], "test", 1569586285000);
+new Account(123123123, TEST_USER_NAME, TEST_USER_EMAIL, "test", 1569586285000, "1d4fe1ad-958e-4d73-811d-ca4f2305a1d8");
 
 
 const provider = new Provider(issuer, config);
@@ -76,12 +81,33 @@ provider.initialize({
 	const router = new Router(); 
 
 	// GET requests
-	
-	router.get('/register/:grant', async (ctx, next) => {
-		const grant = ctx.params.grant;
-		await ctx.render('register', {
-			grant
-		});
+
+
+	router.get('/account/your-details/ayp/tbf/:uuid', async (ctx, next) => {
+		const uuid = ctx.params.uuid;
+		const account = await Account.findByUuid(uuid);
+		if(account){
+			console.log(account);
+			await ctx.render('your-details', {
+				account
+			});
+		} else {
+			await ctx.render('not-found', {});
+		}
+		await next();
+	});
+
+	router.get('/account/change-email-start/ayp/tbf/:uuid', async (ctx, next) => {
+		const uuid = ctx.params.uuid;
+		const account = await Account.findByUuid(uuid);
+		if(account){
+			console.log(account);
+			await ctx.render('change-email-start', {
+				account
+			});
+		} else {
+			await ctx.render('not-found', {});
+		}
 		await next();
 	});
 
@@ -92,7 +118,6 @@ provider.initialize({
 		});
 		await next();
 	});
-
 
 	router.get('/interaction/:grant', async (ctx, next) => {
 		const grant = ctx.params.grant;
@@ -136,6 +161,20 @@ provider.initialize({
 
 	// POST requests
 	const body = bodyParser();
+
+	router.post('/account/change-email-start/ayp/tbf/:uuid/submit', body, async (ctx, next) => {
+		const newEmail = ctx.request.body.email;
+		const uuid = ctx.params.uuid;
+		const returnUrl = SERVICE_HOME_URL
+		await ctx.render('change-email-success', {
+			newEmail,
+			uuid,
+			returnUrl
+			});
+
+		await next();
+	});
+
 
 	router.post('/register/:grant/submit', body, async (ctx, next) => {
 		const newId = Math.floor(100000000 + Math.random() * 900000000)
