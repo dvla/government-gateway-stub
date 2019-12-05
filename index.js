@@ -26,7 +26,7 @@ const TEST_USER_NAME = process.env['TEST_USER_NAME'] || 'Name Lastname';
 const TEST_USER_EMAIL = process.env['TEST_USER_EMAIL'] || 'name.lastname@scp-stub785394.com';
 
 
-const SERVICE_HOME_URL = process.env['SERVICE_HOME_URL'] || 'http://localhost:3000';
+const SERVICE_RETURN_URL = process.env['SERVICE_RETURN_URL'] || 'http://localhost:3000';
 
 // default accounts
 new Account(123123123, TEST_USER_NAME, TEST_USER_EMAIL, "test", 1569586285000, "1d4fe1ad-958e-4d73-811d-ca4f2305a1d8");
@@ -165,7 +165,7 @@ provider.initialize({
 	router.post('/account/change-email-start/ayp/tbf/:uuid/submit', body, async (ctx, next) => {
 		const newEmail = ctx.request.body.email;
 		const uuid = ctx.params.uuid;
-		const returnUrl = SERVICE_HOME_URL
+		const returnUrl = SERVICE_RETURN_URL
 		await ctx.render('change-email-success', {
 			newEmail,
 			uuid,
