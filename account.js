@@ -1,11 +1,12 @@
 const store = new Map();
 const logins = new Map();
 const uuid = require('uuid/v4');
+const issuer = process.env.ISSUER || 'http://localhost:9090';
 
 class Account {
-  constructor(id, principalName, email, password, creationTime) {
+  constructor(id, principalName, email, password, creationTime, identifier = uuid()) {
     this.accountId = id;
-    this.accountUuid = uuid();
+    this.accountUuid = identifier;
     this.principalName = principalName;
     this.email = email;
     this.creationTime = creationTime;
@@ -40,7 +41,7 @@ class Account {
         "bas:gg-legacy:agentCode": "RANDOM12345",
         "bas:gg-legacy:agentFriendlyName": "Test Friendly Name",
         "bas:groupId": "9F9416A1-3977-4FC1-AB5E-0352417FD5A8",
-        "profile": "somelink",
+        "profile": issuer + "/account/your-details/ayp/tbf/" + this.accountUuid,
         "bas:groupProfile": "somelink",
         "bas:gg-legacy:description": "This is the description for the test user name"
     };
@@ -60,7 +61,12 @@ class Account {
     // token is a reference to the token used for which a given account is being loaded,
     //   it is undefined in scenarios where account claims are returned from authorization endpoint
     // ctx is the koa request context
-    return store.get(id);
+
+    return store.get(parseInt(id));
+  }
+  static async findByUuid(uuid) {
+    const arr = Array.from(store.values());
+    return arr.filter((e) => e.accountUuid === uuid)[0];
   }
 }
 

@@ -126,6 +126,8 @@ module.exports.config = {
 var callbackUris = [];
 if(process.env.AUTH_CALLBACKS){
 	callbackUris = process.env.AUTH_CALLBACKS.split(',').map(x => x.trim());
+} else {
+	callbackUris = ['http://localhost:8080/callback_not_set']
 }
 console.log("Return URLs: ", callbackUris);
 

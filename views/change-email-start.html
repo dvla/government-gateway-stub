@@ -1,0 +1,33 @@
+<form autocomplete="off" action="/account/change-email-start/ayp/tbf/<%= account.accountUuid %>/submit" method="post">
+<div class="govuk-width-container">
+    <main class="govuk-main-wrapper">
+     <a href="/account/your-details/ayp/tbf/<%= account.accountUuid %>" class="govuk-back-link">Back</a>
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+          <h2 class="govuk-heading-xl">Change your email address</h1>
+          <p class="govuk-body">
+            This will only be used to send your security updates or if you need to recover your sign in details.
+          </p>
+          <p class="govuk-body">
+            To confirm it is your address we will send you a code.
+          </p>
+          <form method="post" class="form">
+              <div class="govuk-form-group">
+                <label class="govuk-label" for="email">Email address</label>
+                <input required class="govuk-input" id="email" name="email" type="text" value="<%= account.email %>" %>>
+              </div>
+            
+              <div class="govuk-form-group">
+                  <button type="submit" class="govuk-button" type="next" id="submit">Continue</button>
+              </div>
+          </form>      
+          
+        </div>
+  
+      </div>
+  
+      </div>
+  
+    </main>
+  </div>
+</form>

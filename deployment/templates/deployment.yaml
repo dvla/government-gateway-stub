@@ -50,7 +50,11 @@ spec:
             - name: STUB_CLIENT_SECRET
               value: {{ .Values.service.clientSecret | quote }}
             - name: AUTH_CALLBACKS
-              value: {{ .Values.service.authCallbackUrls | quote }}
+              value: {{ .Values.service.authCallbackUrls | quote }}            
+            - name: SERVICE_RETURN_URL
+              value: {{ .Values.service.serviceReturlUrl | quote }}
+            - name: ISSUER
+              value: {{ .Values.service.issuer | quote }}
           resources:
 {{ toYaml .Values.resources | indent 12 }}
     {{- with .Values.nodeSelector }}

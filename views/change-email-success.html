@@ -1,0 +1,38 @@
+<div class="govuk-width-container">
+    <main class="govuk-main-wrapper">
+  
+  
+  
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+  
+          <div class="govuk-panel govuk-panel--confirmation govuk-!-margin-bottom-7 background-colour-success-override">
+            <h1 class="govuk-panel__title" id="successful-heading">
+              You changed your Government Gateway email:
+            </h1>
+            <div class="govuk-panel__body success-panel" id="gov-gateway-email">
+              <%= newEmail %>
+            </div>
+  
+          </div>
+  
+          <p class="govuk-body">We have sent a notification to <b> <%= newEmail %></b></p>
+  
+        </div>
+  
+      </div>
+  
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+          <p class="govuk-body">
+            <a class="govuk-button button-spacing govuk-!-margin-top-7 govuk-!-margin-bottom-7" href="<%= returnUrl %>" id="continue-from-email-changed-btn">Continue</a>
+          </p>
+          <p class="govuk-body govuk-!-font-weight-regular">
+            <a class="govuk-link" href="#" target="_self">Get help</a>
+          </p>
+        </div>
+  
+      </div>
+  
+    </main>
+  </div>
