@@ -81,7 +81,12 @@ provider.initialize({
 	const router = new Router(); 
 
 	// GET requests
-
+	
+	router.get('/register/:grant', async (ctx, next) => {
+		const grant = ctx.params.grant;
+		await ctx.render('register', {
+			grant
+		});
 
 	router.get('/account/your-details/ayp/tbf/:uuid', async (ctx, next) => {
 		const uuid = ctx.params.uuid;
