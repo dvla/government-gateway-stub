@@ -81,7 +81,6 @@ provider.initialize({
 	const router = new Router(); 
 
 	// GET requests
-
 	router.get('/register/:grant', async (ctx, next) => {
 		const grant = ctx.params.grant;
 		await ctx.render('register', {
