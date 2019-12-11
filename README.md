@@ -62,7 +62,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InJpY2hhcmRAbm90YmluYXJ5LmNvLnV
 
 
 
-## Screens
+## Login Screens
 We have reproduce the same look and feel of Government Gateway, although we have simplified the Sign Up process, as the real flow is much more convoluted. We think testing the sign up flow does not add value in the end to end flow as it effectively means testing and out-of-the-box functionality provided to us.
 
 ### Homepage
@@ -73,3 +73,20 @@ We have reproduce the same look and feel of Government Gateway, although we have
 
 ### Sign Up success
 ![alt signup-success](screens/sign_up_success.png)
+
+
+
+## Additional HMRC Screens - Your details
+Gov Gateway allows account management. We implemented a simulation of the actual email-change flow.
+
+### Your Details
+![alt details_screen](screens/your_details.png)
+
+### Change email
+![alt details_screen](screens/change_email.png)
+
+### Change email confirmation
+![alt details_screen](screens/email_confirmation.png)
+
+
+
