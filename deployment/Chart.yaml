@@ -1,4 +1,0 @@
-apiVersion: v1
-name: government-gateway-stub
-# does not relate to app version
-version: 1.0.0
