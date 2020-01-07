@@ -25,10 +25,15 @@ With the following configurable ENVIROMENT VARIABLES
       - AUTH_CALLBACKS=http://localhost:3000/auth_callback
       - SERVICE_RETURN_URL=http://localhost:3000
 ```
+
 PORT is the container's port
+
 STUB_CLIENT_ID is mocking the CLIENT_ID provided by HMRC for using the GG api
+
 STUB_CLIENT_SECRET is mocking the CLIENT_SECRET provided by HMRC for using the GG api
+
 AUTH_CALLBACKS is a comma separated array of authorised callback urls, this has to match the redirect_uri parameter of the Open ID authentication flow.
+
 SERVICE_RETURN_URL is a url for returning after completing Accounts operations (see 'Change email') which we suggest you set this to your service homepage.
 
 
