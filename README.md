@@ -12,6 +12,8 @@ Government id: 123123123, password: "test", uuid: 1d4fe1ad-958e-4d73-811d-ca4f23
 Should return => "<FirstName LastName>", "<Email>"
 
 ## Usage
+If your team needs to implement and test Government Gateway integration, this stub will work for you with minimal configuration. You will only need to set a few environment variables as shown below.
+
 `docker-compose build`
 `docker-compose up`
 
@@ -20,8 +22,15 @@ With the following configurable ENVIROMENT VARIABLES
       - PORT=9090
       - STUB_CLIENT_ID=stubOidcClient
       - STUB_CLIENT_SECRET=secretsarehardtokeep
-      - AUTH_CALLBACK=http://localhost:3000/auth_callback
+      - AUTH_CALLBACKS=http://localhost:3000/auth_callback
+      - SERVICE_RETURN_URL=http://localhost:3000
 ```
+PORT is the container's port
+STUB_CLIENT_ID is mocking the CLIENT_ID provided by HMRC for using the GG api
+STUB_CLIENT_SECRET is mocking the CLIENT_SECRET provided by HMRC for using the GG api
+AUTH_CALLBACKS is a comma separated array of authorised callback urls, this has to match the redirect_uri parameter of the Open ID authentication flow.
+SERVICE_RETURN_URL is a url for returning after completing Accounts operations (see 'Change email') which we suggest you set this to your service homepage.
+
 
 
 ## Example
